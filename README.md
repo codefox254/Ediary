@@ -9,6 +9,7 @@ Ediary is a comprehensive digital solution designed to streamline your daily tas
 
 ## Features
 Ediary offers a range of features to help you manage your personal and professional life:
+![Uploading image.png…]()
 
 - **Diary:** Create and manage your personal diary entries. Customize diary covers and jot down thoughts and activities.
 - **To-Do List:** Manage your daily tasks with a to-do list. Set due dates and update task statuses.
