@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List - Ediary</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            background-image: url('todolist.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .ratings p,
+        .contact-links p {
+            margin: 5px 0;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Task List Styles */
+        .task-list {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .task-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-info {
+            flex: 2;
+            text-align: left;
+        }
+
+        .task-status {
+            flex: 1;
+            text-align: right;
+        }
+
+        .task-status select {
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        .task-status button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Ediary Logo" class="logo">
+            <h1>Ediary</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="diary.html">Diary</a></li>
+                <li><a href="todo.html">To-Do</a></li>
+                <li><a href="meetings.html">Meeting Planner</a></li>
+                <li><a href="#">Logout</a></li> <!-- Replace '#' with actual logout functionality -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>To-Do List</h2>
+        <form id="todoForm">
+            <div class="form-group">
+                <label for="task">Task</label>
+                <input type="text" id="task" name="task" required>
+            </div>
+            <div class="form-group">
+                <label for="dueDate">Due Date</label>
+                <input type="date" id="dueDate" name="dueDate" required>
+            </div>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <!-- Task List -->
+        <div class="task-list">
+            <h3>Your Tasks</h3>
+            <!-- Example Task Item -->
+            <div class="task-item">
+                <div class="task-info">
+                    <p>Task details...</p>
+                    <p>Due Date: 2024-07-10</p>
+                </div>
+                <div class="task-status">
+                    <p>Status: <span id="taskStatus">New</span></p>
+                    <button onclick="changeStatus(this)">Change Status</button>
+                </div>
+            </div>
+            <!-- More tasks can be dynamically added here -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="ratings">
+                <p>★★★★★</p>
+                <p>"Ediary has transformed how I manage my tasks!" - User A</p>
+                <p>"A must-have for staying organized." - User B</p>
+                <p>"Love the seamless sync across devices." - User C</p>
+            </div>
+            <div class="contact-links">
+                <p><a href="contact.html">Contact Us</a></p>
+                <p><a href="terms.html">Terms and Conditions</a></p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Ediary. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inline JavaScript for Todo page
+
+        // Example JavaScript to log a message
+        console.log("Todo page loaded.");
+
+        // Example event listener
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM fully loaded and parsed.");
+        });
+
+        // Example form submission handling
+        document.getElementById("todoForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Fetch form data
+            let task = document.getElementById("task").value;
+            let dueDate = document.getElementById("dueDate").value;
+
+            // Example: Handle form submission (you would typically send this data to backend or process it further)
+            console.log("Task:", task);
+            console.log("Due Date:", dueDate);
+
+            // Clear form fields after submission (optional)
+            document.getElementById("task").value = "";
+            document.getElementById("dueDate").value = "";
+
+            // Example: Create task item dynamically (replace with backend data retrieval)
+            createTaskItem(task, dueDate);
+        });
+
+        // Example function to create task item dynamically (replace with backend data retrieval)
+        function createTaskItem(task, dueDate) {
+            let taskList = document.querySelector(".task-list");
+
+            // Create task item container
+            let taskItem = document.createElement("div");
+            taskItem.classList.add("task-item");
+
+            // Task details
+            let taskInfo = document.createElement("div");
+            taskInfo.classList.add("task-info");
+            taskInfo.innerHTML = `
+                <p>${task}</p>
+                <p>Due Date: ${dueDate}</p>
+            `;
+
+            // Task status
+            let taskStatus = document.createElement("div");
+            taskStatus.classList.add("task-status");
+            taskStatus.innerHTML = `
+                <p>Status: <span>New</span></p>
+                <button onclick="changeStatus(this)">Change Status</button>
+            `;
+
+            // Append task details and status to task item
+            taskItem.appendChild(taskInfo);
+            taskItem.appendChild(taskStatus);
+
+            // Append task item to task list
+            taskList.appendChild(taskItem);
+        }
+
+        // Example function to change task status
+        function changeStatus(button) {
+            let statusSpan = button.previousElementSibling.querySelector("span");
+            let currentStatus = statusSpan.textContent.toLowerCase();
+            
+            if (currentStatus === "new") {
+                statusSpan.textContent = "In Progress";
+            } else if (currentStatus === "in progress") {
+                statusSpan.textContent = "Complete";
+            } else if (currentStatus === "complete") {
+                statusSpan.textContent = "New";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ediary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .feature {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-content div {
+            margin: 10px 0;
+        }
+
+        .ratings p,
+        .contact-links p {
+            margin: 5px 0;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Ediary Logo" class="logo">
+            <h1>Ediary</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="diary.html">Diary</a></li>
+                <li><a href="todo.html">To-Do</a></li>
+                <li><a href="meetings.html">Meeting Planner</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Welcome to Ediary</h2>
+        <p>Try out our various Ediary features:</p>
+        <div class="feature" id="feature1" onclick="window.location.href='diary.html';">
+            <img src="diary.jpg" alt="Diary Image">
+            <p>Keep a Diary to make daily journals.</p>
+        </div>
+        <div class="feature" id="feature2" onclick="window.location.href='todo.html';">
+            <img src="todo.jpg" alt="To-Do Image">
+            <p>Manage your tasks with the To-Do list.</p>
+        </div>
+        <div class="feature" id="feature3" onclick="window.location.href='meetings.html';">
+            <img src="meeting.jpg" alt="Meeting Image">
+            <p>Plan your meetings effortlessly.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="ratings">
+                <p>★★★★★</p>
+                <p>"Ediary has transformed how I manage my tasks!" - User A</p>
+                <p>"A must-have for staying organized." - User B</p>
+                <p>"Love the seamless sync across devices." - User C</p>
+            </div>
+            <div class="contact-links">
+                <p><a href="contact.html">Contact Us</a></p>
+                <p><a href="terms.html">Terms and Conditions</a></p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Ediary. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

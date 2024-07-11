@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Planner - Ediary</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            background-image: url('meetingbackground.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .ratings p,
+        .contact-links p {
+            margin: 5px 0;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Meeting Form Styles */
+        .meeting-form {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group textarea {
+            width: calc(100% - 10px);
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Calendar Styles */
+        .calendar {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .calendar h2 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .calendar-event {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .calendar-event p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="logo.png" alt="Ediary Logo" class="logo">
+            <h1>Ediary</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="diary.html">Diary</a></li>
+                <li><a href="todo.html">To-Do</a></li>
+                <li><a href="meetings.html">Meeting Planner</a></li>
+                <li><a href="#">Logout</a></li> <!-- Replace '#' with actual logout functionality -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Meeting Planner</h2>
+        <div class="meeting-form">
+            <form id="meetingForm">
+                <div class="form-group">
+                    <label for="title">Meeting Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="invitees">Invitees</label>
+                    <textarea id="invitees" name="invitees" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="timeFrom">Time From</label>
+                    <input type="datetime-local" id="timeFrom" name="timeFrom" required>
+                </div>
+                <div class="form-group">
+                    <label for="timeTo">Time To</label>
+                    <input type="datetime-local" id="timeTo" name="timeTo" required>
+                </div>
+                <button type="submit">Create Meeting</button>
+            </form>
+        </div>
+
+        <div class="calendar">
+            <h2>My Meetings</h2>
+            <!-- Calendar Events will be dynamically added here -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="ratings">
+                <p>★★★★★</p>
+                <p>"Ediary has transformed how I manage my tasks!" - User A</p>
+                <p>"A must-have for staying organized." - User B</p>
+                <p>"Love the seamless sync across devices." - User C</p>
+            </div>
+            <div class="contact-links">
+                <p><a href="contact.html">Contact Us</a></p>
+                <p><a href="terms.html">Terms and Conditions</a></p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Ediary. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inline JavaScript for Meeting page
+
+        // Example JavaScript to log a message
+        console.log("Meeting page loaded.");
+
+        // Example event listener
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM fully loaded and parsed.");
+        });
+
+        // Example form submission handling
+        document.getElementById("meetingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Fetch form data
+            let title = document.getElementById("title").value;
+            let invitees = document.getElementById("invitees").value;
+            let timeFrom = document.getElementById("timeFrom").value;
+            let timeTo = document.getElementById("timeTo").value;
+
+            // Example: Handle form submission (you would typically send this data to backend or process it further)
+            console.log("Meeting Title:", title);
+            console.log("Invitees:", invitees);
+            console.log("Time From:", timeFrom);
+            console.log("Time To:", timeTo);
+
+            // Example: Display success message or perform further actions
+            alert("Meeting created successfully!");
+
+            // Example: Add the event to the calendar display
+            addEventToCalendar(title, timeFrom, timeTo);
+        });
+
+        // Example function to add event to calendar
+        function addEventToCalendar(title, timeFrom, timeTo) {
+            let calendar = document.querySelector('.calendar');
+
+            let eventElement = document.createElement('div');
+            eventElement.classList.add('calendar-event');
+            eventElement.innerHTML = `
+                <p><strong>${title}</strong></p>
+                <p>Starts: ${new Date(timeFrom).toLocaleString()}</p>
+                <p>Ends: ${new Date(timeTo).toLocaleString()}</p>
+            `;
+
+            calendar.appendChild(eventElement);
+        }
+    </script>
+</body>
+</html>
